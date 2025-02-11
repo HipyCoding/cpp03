@@ -6,7 +6,7 @@
 /*   By: candrese <candrese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 04:42:11 by candrese          #+#    #+#             */
-/*   Updated: 2025/02/11 08:04:02 by candrese         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:52:11 by candrese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,10 @@ void ScavTrap::attack(const std::string& target) {
 
 // Guard Gate mode
 void ScavTrap::guardGate() {
+	if(_hitPoints == 0)
+	{
+		std::cout << "ScavTrap " << _name << " is too damaged to guard the gate!" << std::endl;
+		return;
+	}
 	std::cout << "ScavTrap " << _name << " is now guarding the gate!" << std::endl;
 }

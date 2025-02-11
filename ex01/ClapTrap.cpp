@@ -6,7 +6,7 @@
 /*   By: candrese <candrese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 23:00:17 by christian         #+#    #+#             */
-/*   Updated: 2025/02/11 08:23:06 by candrese         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:39:05 by candrese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,6 @@ void ClapTrap::beRepaired(unsigned int amount) {
 
 void	ClapTrap::displayStatus() const
 {
-	std::cout << "ScavTrap " << _name <<  " HP: " << _hitPoints << ", Energy: " << _energyPoints
+	std::cout << "ClapTrap " << _name <<  " HP: " << _hitPoints << ", Energy: " << _energyPoints
 		<< ", Attack Damage: " << _attackDamage << "\n";
 }

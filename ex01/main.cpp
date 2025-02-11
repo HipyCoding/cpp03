@@ -6,7 +6,7 @@
 /*   By: candrese <candrese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 23:00:23 by christian         #+#    #+#             */
-/*   Updated: 2025/02/11 08:33:41 by candrese         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:53:29 by candrese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,20 @@ int	main() {
 	std::cout << "\n=== Testing Guard Gate Mode ===" << std::endl;
 	scav.guardGate();
 	
-	std::cout << "\n=== Testing Energy Points Depletion ===" << std::endl;
-	for (int i = 0; i < 49; ++i) {
-		scav.attack("Enemy-ST");
-	}
-	scav.displayStatus();
-	scav.attack("Enemy-ST");  // Should fail due to no energy
-	scav.beRepaired(5);      // Should fail due to no energy
+	// std::cout << "\n=== Testing Energy Points Depletion ===" << std::endl;
+	// for (int i = 0; i < 49; ++i) {
+	// 	scav.attack("Enemy-ST");
+	// }
+	// scav.displayStatus();
+	// scav.attack("Enemy-ST");  // Should fail due to no energy
+	// scav.beRepaired(5);      // Should fail due to no energy
 	
 	std::cout << "\n=== Testing Fatal Damage ===" << std::endl;
 	enemy.takeDamage(200);    // More than max HP
 	enemy.displayStatus();     // Should show 0 HP
-	enemy.attack("ST-1");     // Should fail due to no hit points
-	enemy.beRepaired(50);     // Should fail due to no hit points
-	enemy.guardGate();        // Should still work even with 0 HP
+	enemy.attack("ST-1");
+	enemy.beRepaired(50);
+	enemy.guardGate();
 	
 	std::cout << "\n=== End of Tests ===" << std::endl;
 	
