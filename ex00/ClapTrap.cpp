@@ -6,7 +6,7 @@
 /*   By: candrese <candrese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 23:00:17 by christian         #+#    #+#             */
-/*   Updated: 2025/02/11 07:04:09 by candrese         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:36:50 by candrese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ClapTrap::ClapTrap() :
 }
 
 // Parameterized constructor
-ClapTrap::ClapTrap(std::string_view name) : 
+ClapTrap::ClapTrap(std::string& name) : 
 	_name(name), 
 	_hitPoints(10), 
 	_energyPoints(10), 
@@ -60,7 +60,7 @@ ClapTrap::~ClapTrap() {
 	std::cout << "ClapTrap destructor called for " << _name << std::endl;
 }
 
-void ClapTrap::attack(std::string_view target) {
+void ClapTrap::attack(std::string& target) {
 	if (_energyPoints == 0 || _hitPoints == 0) {
 		std::cout << "ClapTrap " << _name << " can't attack - no energy or hit points left!" << std::endl;
 		return;
