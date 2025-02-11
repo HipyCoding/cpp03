@@ -6,12 +6,11 @@
 /*   By: candrese <candrese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 23:00:17 by christian         #+#    #+#             */
-/*   Updated: 2025/02/11 07:04:09 by candrese         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:04:12 by candrese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include <iostream>
 
 // Default constructor
 ClapTrap::ClapTrap() : 
@@ -24,7 +23,7 @@ ClapTrap::ClapTrap() :
 }
 
 // Parameterized constructor
-ClapTrap::ClapTrap(std::string_view name) : 
+ClapTrap::ClapTrap(std::string& name) : 
 	_name(name), 
 	_hitPoints(10), 
 	_energyPoints(10), 
@@ -40,12 +39,12 @@ ClapTrap::ClapTrap(const ClapTrap& other) :
 	_energyPoints(other._energyPoints),
 	_attackDamage(other._attackDamage)
 {
-	std::cout << "ClapTrap copy constructor called" << std::endl;
+	std::cout << "ClapTrap copy constructor called for " << _name << std::endl;
 }
 
 // Copy assignment operator
 ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
-	std::cout << "ClapTrap copy assignment operator called" << std::endl;
+	std::cout << "ClapTrap copy assignment operator called for " << _name << std::endl;
 	if (this != &other) {
 		_name = other._name;
 		_hitPoints = other._hitPoints;
@@ -60,7 +59,7 @@ ClapTrap::~ClapTrap() {
 	std::cout << "ClapTrap destructor called for " << _name << std::endl;
 }
 
-void ClapTrap::attack(std::string_view target) {
+void ClapTrap::attack(std::string& target) {
 	if (_energyPoints == 0 || _hitPoints == 0) {
 		std::cout << "ClapTrap " << _name << " can't attack - no energy or hit points left!" << std::endl;
 		return;
