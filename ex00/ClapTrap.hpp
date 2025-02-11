@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christian <christian@student.42.fr>        +#+  +:+       +#+        */
+/*   By: candrese <candrese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 23:00:20 by christian         #+#    #+#             */
-/*   Updated: 2025/02/10 12:15:05 by christian        ###   ########.fr       */
+/*   Updated: 2025/02/11 07:07:09 by candrese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class ClapTrap {
 private:
-	std::string	_name;
+	std::string		_name;
 	unsigned int	_hitPoints;
 	unsigned int	_energyPoints;
 	unsigned int	_attackDamage;
@@ -35,6 +35,9 @@ public:
 	void attack(std::string_view target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
+
+	// getter Member functions
+	void	displayStatus() const;
 };
 
 #endif

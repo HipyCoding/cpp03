@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christian <christian@student.42.fr>        +#+  +:+       +#+        */
+/*   By: candrese <candrese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 23:00:17 by christian         #+#    #+#             */
-/*   Updated: 2025/02/08 19:54:52 by christian        ###   ########.fr       */
+/*   Updated: 2025/02/11 07:04:09 by candrese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,11 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	_hitPoints += amount;
 	std::cout << "ClapTrap " << _name << " repairs itself for " << amount 
 		<< " points! Current HP: " << _hitPoints << std::endl;
+}
+
+void	ClapTrap::displayStatus() const
+{
+	std::cout << "ClapTrap " << _name <<  " HP: " << _hitPoints
+			<< ", Energy: " << _energyPoints
+			<< ", Attack Damage: " << _attackDamage << "\n";
 }
