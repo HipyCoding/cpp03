@@ -6,14 +6,14 @@
 /*   By: candrese <candrese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 04:42:11 by candrese          #+#    #+#             */
-/*   Updated: 2025/02/11 12:52:11 by candrese         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:48:29 by candrese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 // Default constructor
-ScavTrap::ScavTrap() : ClapTrap("unnamed") {
+ScavTrap::ScavTrap() : ClapTrap() {
 	std::cout << "ScavTrap default constructor called" << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 50;
@@ -30,17 +30,14 @@ ScavTrap::ScavTrap(std::string& name) : ClapTrap(name) {
 
 // Copy constructor
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
-	std::cout << "ScavTrap copy constructor called" << std::endl;
+	std::cout << "ScavTrap copy constructor called for " << _name << std::endl;
 }
 
 // Copy assignment operator
 ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
-	std::cout << "ScavTrap copy assignment operator called" << std::endl;
+	std::cout << "ScavTrap copy assignment operator called for " << _name << std::endl;
 	if (this != &other) {
-		_name = other._name;
-		_hitPoints = other._hitPoints;
-		_energyPoints = other._energyPoints;
-		_attackDamage = other._attackDamage;
+		ClapTrap::operator=(other);
 	}
 	return *this;
 }
@@ -50,8 +47,7 @@ ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap destructor called for " << _name << std::endl;
 }
 
-// Attack function
-void ScavTrap::attack(const std::string& target) {
+void ScavTrap::attack(std::string& target) {
 	if (_energyPoints == 0 || _hitPoints == 0) {
 		std::cout << "ScavTrap " << _name << " can't attack - no energy or hit points left!" << std::endl;
 		return;
@@ -70,3 +66,4 @@ void ScavTrap::guardGate() {
 	}
 	std::cout << "ScavTrap " << _name << " is now guarding the gate!" << std::endl;
 }
+

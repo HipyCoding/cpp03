@@ -6,14 +6,13 @@
 /*   By: candrese <candrese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 04:42:14 by candrese          #+#    #+#             */
-/*   Updated: 2025/02/11 08:00:28 by candrese         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:51:33 by candrese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-# define SCAVTRAP_H
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-# include <iostream>
 # include "ClapTrap.hpp"
 
 class	ScavTrap : public ClapTrap {
@@ -25,9 +24,9 @@ class	ScavTrap : public ClapTrap {
 		ScavTrap&	operator=(const ScavTrap& other);
 		~ScavTrap();
 
-		// Memberfunctions
-		void 		attack(const std::string& target);
-		void 		guardGate(void);
+		// Member functions
+		void attack(std::string& target);
+		void guardGate(void);
 };
 
 #endif

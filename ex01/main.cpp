@@ -6,61 +6,52 @@
 /*   By: candrese <candrese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 23:00:23 by christian         #+#    #+#             */
-/*   Updated: 2025/02/11 12:53:29 by candrese         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:48:04 by candrese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-int	main() {
-	std::cout << "\n=== Testing ScavTrap Constructors ===" << std::endl;
+int	main(void)
+{
+	std::cout << "\n=== Testing Constructors ===" << std::endl;
 	std::string name1 = "ST-1";
-	std::string name2 = "Enemy-ST";
-	ScavTrap scav(name1);
-	ScavTrap enemy(name2);
-	ScavTrap default_scav;
-	ScavTrap copy_scav(scav);
+	std::string name2 = "ST-2";
+	std::string enemyName = "Enemy-ST";
 	
-	// Test initial status
-	std::cout << "\n=== Initial Status ===" << std::endl;
-	scav.displayStatus();
-	enemy.displayStatus();
-	default_scav.displayStatus();
-	copy_scav.displayStatus();
-	
-	// Test copy assignment
+	ScavTrap	scav(name1);
+	ScavTrap	enemy(name2);
+	ScavTrap	default_scav;
+	ScavTrap	copy_scav(scav);
+
 	std::cout << "\n=== Testing Copy Assignment ===" << std::endl;
 	copy_scav = default_scav;
-	copy_scav.displayStatus();
 
-	std::cout << "\n=== Testing Attack and Damage ===" << std::endl;
-	scav.attack("Enemy-ST");
-	enemy.takeDamage(20);
-	enemy.displayStatus();
-	
-	std::cout << "\n=== Testing Repair ===" << std::endl;
-	enemy.beRepaired(10);
-	enemy.displayStatus();
-	
-	std::cout << "\n=== Testing Guard Gate Mode ===" << std::endl;
+	std::cout << "\n=== Testing Basic Functions ===" << std::endl;
+	scav.attack(enemyName);
+	scav.takeDamage(30);
+	scav.beRepaired(20);
 	scav.guardGate();
-	
-	// std::cout << "\n=== Testing Energy Points Depletion ===" << std::endl;
-	// for (int i = 0; i < 49; ++i) {
-	// 	scav.attack("Enemy-ST");
+
+	std::cout << "\n=== Testing High Damage ===" << std::endl;
+	enemy.takeDamage(200);  // Should deplete all HP
+	enemy.attack(name1);    // Should fail - no HP
+	enemy.beRepaired(50);   // Should fail - no HP
+	enemy.guardGate();      // Should still work with no HP
+
+	// std::cout << "\n=== Testing Energy Depletion ===" << std::endl;
+	// // ScavTrap has 50 energy points, let's use them all
+	// for (int i = 0; i < 25; ++i) {
+	// 	scav.attack(enemyName);
+	// 	scav.beRepaired(1);
 	// }
-	// scav.displayStatus();
-	// scav.attack("Enemy-ST");  // Should fail due to no energy
-	// scav.beRepaired(5);      // Should fail due to no energy
-	
-	std::cout << "\n=== Testing Fatal Damage ===" << std::endl;
-	enemy.takeDamage(200);    // More than max HP
-	enemy.displayStatus();     // Should show 0 HP
-	enemy.attack("ST-1");
-	enemy.beRepaired(50);
-	enemy.guardGate();
-	
+	// // These should fail due to no energy
+	// scav.attack(name2);
+	// scav.beRepaired(10);
+	// // But guard gate should still work!
+	// scav.guardGate();
+
 	std::cout << "\n=== End of Tests ===" << std::endl;
-	
+
 	return 0;
 }
