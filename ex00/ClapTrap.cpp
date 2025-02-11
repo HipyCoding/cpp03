@@ -6,12 +6,11 @@
 /*   By: candrese <candrese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 23:00:17 by christian         #+#    #+#             */
-/*   Updated: 2025/02/11 14:36:50 by candrese         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:03:48 by candrese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include <iostream>
 
 // Default constructor
 ClapTrap::ClapTrap() : 
@@ -40,12 +39,12 @@ ClapTrap::ClapTrap(const ClapTrap& other) :
 	_energyPoints(other._energyPoints),
 	_attackDamage(other._attackDamage)
 {
-	std::cout << "ClapTrap copy constructor called" << std::endl;
+	std::cout << "ClapTrap copy constructor called for " << _name << std::endl;
 }
 
 // Copy assignment operator
 ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
-	std::cout << "ClapTrap copy assignment operator called" << std::endl;
+	std::cout << "ClapTrap copy assignment operator called for " << _name << std::endl;
 	if (this != &other) {
 		_name = other._name;
 		_hitPoints = other._hitPoints;

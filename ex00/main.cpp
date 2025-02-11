@@ -6,16 +6,11 @@
 /*   By: candrese <candrese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 23:00:23 by christian         #+#    #+#             */
-/*   Updated: 2025/02/11 14:35:14 by candrese         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:52:03 by candrese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include <iostream>
-
-
-#include "ClapTrap.hpp"
-#include <iostream>
 
 int	main() {
 	std::cout << "\n=== Testing Constructors ===" << std::endl;
